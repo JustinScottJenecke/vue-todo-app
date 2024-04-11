@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./app.js" defer></script>
+    <style>
+        .active {
+            background-color: rgb(42, 207, 42);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <button :class="btnClass" @click="btnClick">{{btnText}}</button> -->
+        <button :class="btnActive ? 'active' : 'inactive'" @click="btnClick">{{btnText}}</button>
+    </div>
+</body>
+</html>
