@@ -13,7 +13,12 @@ const App = {
 
     },
     computed: {
-
+        completedTodos() {
+            return this.todoItemList.filter(item => item.complete)
+        },
+        backlogTodos() {
+            return this.todoItemList.filter(item => !item.complete)
+        }
     }
 }
 

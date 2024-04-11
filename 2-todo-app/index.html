@@ -15,21 +15,21 @@
         <h1 class="m-2 font-bold text-center text-lg">Todo App</h1>
         <hr>
         <section class="grid grid-cols-2 p-2">
-            <div>
+            <div v-show="backlogTodos.length">
                 <h2 class="font-bold">Backlog:</h2>
                 <ul>
-                    <li class="pl-4 m-1" v-for="todoItem in todoItemList.filter(item => !item.complete)" :key="todoItem.id">
-                        {{todoItem.todoName}}
+                    <li class="pl-4 m-1" v-for="todoItem in backlogTodos" :key="todoItem.id">
+                        {{todoItem.id}} - {{todoItem.todoName}}
                         <input type="checkbox" name="" id="" v-model="todoItem.complete">
                     </li>
                 </ul>
             </div>
-            <div>
+            <div v-show="completedTodos.length">
                 <h2 class="font-bold">Completed:</h2>
                 <ul>
-                    <li class="pl-4 m-1" v-for="todoItem in todoItemList.filter(item => item.complete)">
-                        {{todoItem.todoName}}
-                        <input type="checkbox" name="" id="" v-model="todoItem.complete" :key="todoItem.id">
+                    <li class="pl-4 m-1" v-for="todoItem in completedTodos" :key="todoItem.id">
+                        {{todoItem.id}} - {{todoItem.todoName}}
+                        <input type="checkbox" name="" id="" v-model="todoItem.complete">
                     </li>
                 </ul>
             </div>
