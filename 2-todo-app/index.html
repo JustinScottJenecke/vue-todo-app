@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./app.js" defer></script>
+</head>
+
+<body class="h-full">
+    <main id="app">
+        <h1 class="m-2 font-bold text-center text-lg">Todo App</h1>
+        <hr>
+        <section class="grid grid-cols-2 p-2">
+            <div>
+                <h2 class="font-bold">Backlog:</h2>
+                <ul>
+                    <li class="pl-4 m-1" v-for="todoItem in todoItemList.filter(item => !item.complete)" :key="todoItem.id">
+                        {{todoItem.todoName}}
+                        <input type="checkbox" name="" id="" v-model="todoItem.complete">
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="font-bold">Completed:</h2>
+                <ul>
+                    <li class="pl-4 m-1" v-for="todoItem in todoItemList.filter(item => item.complete)">
+                        {{todoItem.todoName}}
+                        <input type="checkbox" name="" id="" v-model="todoItem.complete" :key="todoItem.id">
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
