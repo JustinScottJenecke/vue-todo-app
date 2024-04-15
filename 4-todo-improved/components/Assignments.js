@@ -10,8 +10,8 @@ const Assignments = {
             <h1 class="m-2 font-bold text-center text-lg">Todo App</h1>
             <hr>
             <section class="grid grid-cols-2 p-2">
-                <assignment-list :todos="backlogTodos" title="Backlog"/>
-                <assignment-list :todos="completedTodos" title="Complete"/>
+                <assignment-list :todos="filters.backlog" title="Backlog"/>
+                <assignment-list :todos="filters.completed" title="Complete"/>
             </section>
         </section>
     `,
@@ -29,12 +29,12 @@ const Assignments = {
 
     },
     computed: {
-        completedTodos() {
-            return this.todoItemList.filter(item => item.complete)
+        filters() {
+            return {
+                completed: this.todoItemList.filter(item => item.complete),
+                backlog: this.todoItemList.filter(item => !item.complete)  
+            }
         },
-        backlogTodos() {
-            return this.todoItemList.filter(item => !item.complete)
-        }
     }
 }
 
