@@ -1,28 +1,17 @@
-const one = {
+import AssignmentList from "./AssignmentList.js";
+
+const Assignments = {
+    components: {
+        'assignment-list': AssignmentList
+    },
     /* html */
     template: `
         <section id="Assignments">
             <h1 class="m-2 font-bold text-center text-lg">Todo App</h1>
             <hr>
             <section class="grid grid-cols-2 p-2">
-                <div v-show="backlogTodos.length">
-                    <h2 class="font-bold">Backlog:</h2>
-                    <ul>
-                        <li class="pl-4 m-1" v-for="todoItem in backlogTodos" :key="todoItem.id">
-                            {{todoItem.id}} - {{todoItem.todoName}}
-                            <input type="checkbox" name="" id="" v-model="todoItem.complete">
-                        </li>
-                    </ul>
-                </div>
-                <div v-show="completedTodos.length">
-                    <h2 class="font-bold">Completed:</h2>
-                    <ul>
-                        <li class="pl-4 m-1" v-for="todoItem in completedTodos" :key="todoItem.id">
-                            {{todoItem.id}} - {{todoItem.todoName}}
-                            <input type="checkbox" name="" id="" v-model="todoItem.complete">
-                        </li>
-                    </ul>
-                </div>
+                <assignment-list :todos="backlogTodos" title="Backlog"/>
+                <assignment-list :todos="completedTodos" title="Complete"/>
             </section>
         </section>
     `,
@@ -49,4 +38,4 @@ const one = {
     }
 }
 
-export default one;
+export default Assignments;
