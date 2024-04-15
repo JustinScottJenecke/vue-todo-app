@@ -1,12 +1,13 @@
 const AppButton = {
     template: `
         <button 
-            class="disabled:cursor-not-allowed px-2 py-1 m-1 "
+            class="px-2 py-1 m-1 "
             :class="{ 
                 'bg-gray-200 text-gray-900' : btntype === 'primary',
-                'bg-gray-900 text-zinc-200' : btntype === 'negative'
+                'bg-gray-900 text-zinc-200' : btntype === 'negative',
+                'disabled:cursor-not-allowed': processing
             }" 
-            :disabled="processing" @click="btnClick"
+            :disabled="processing"
         >
             <slot />
         </button>
@@ -15,16 +16,10 @@ const AppButton = {
         btntype: {
             type: String,
             default: "primary"
-        }
-    },
-    data() {
-        return {
-            processing: false
-        }
-    },
-    methods: {
-        btnClick() {
-            this.processing = !this.processing
+        },
+        processing: {
+            type: Boolean,
+            default: false
         }
     }
 }
