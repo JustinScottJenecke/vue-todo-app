@@ -3,11 +3,11 @@ const AssignmentItem = {
         todoItem: Object
     },
     /* html */
-    template: `
-        <div :id="todoItem.id">
+    template: ` 
+        <li :id="todoItem.id">
             {{todoItem.id}} - {{todoItem.todoName}}
             <input type="checkbox" name="" id="" v-model="todoItem.complete">
-        </div>
+        </li>
     `
 }
 
